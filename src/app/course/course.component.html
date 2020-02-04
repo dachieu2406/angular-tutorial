@@ -1,0 +1,29 @@
+<p>{{ title }}</p>
+
+<div (click)="onDivClick($event)">
+    <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActive ? 'blue' : while">Save</button>
+</div>
+
+<div>
+    <label>Template variable</label>
+    <input #email (keyup.enter)="onKeyUp(email.value)">
+</div>
+
+<div>
+    <label>Two ways binding</label>
+    <input [(ngModel)]="email1" (keyup.enter)="onKeyUp1()">
+</div>
+
+<div>
+    <label>Pipes</label><br>
+    {{ course.title }}<br>
+    {{ course.rating | number:'2.1-1' }}<br>
+    {{ course.students | number }}<br>
+    {{ course.price | currency:'vnd':true:'1.2-2' }}<br>
+    {{ course.releaseDate | date:'longDate' }}<br>
+</div>
+<div>
+    {{ lorem | summary:3:4 }}
+</div>
+<br>
+<img [src]="urlImage" />

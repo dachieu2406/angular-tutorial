@@ -1,3 +1,15 @@
+## Install Project
+```
+npm install
+```
+
+## Install Boostrap
+```
+npm install bootstrap jquery --save
+```
+
+
+===
 # AngularTutorial
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
