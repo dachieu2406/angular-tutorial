@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { InputFieldDirective } from './input-field.directive';
 
 
 const routes: Routes = [];
@@ -12,6 +13,7 @@ const routes: Routes = [];
       RouterModule
    ],
    declarations: [
+      InputFieldDirective
    ]
 })
 export class AppRoutingModule { }

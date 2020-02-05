@@ -1,0 +1,9 @@
+<button 
+    class="btn"
+    [ngClass]="{
+        'btn-primary': isFavorite,
+        'btn-warning': !isFavorite
+    }"
+    (click)="onClick()">
+    This is reusable component
+</button>

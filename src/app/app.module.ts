@@ -6,19 +6,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { SummaryPipe } from './summary.pipe';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { PanelComponent } from './panel/panel.component';
+import { DirectiveComponent } from './directive/directive.component';
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CourseComponent,
-    SummaryPipe
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      CourseComponent,
+      SummaryPipe,
+      FavoriteComponent,
+      PanelComponent,
+      DirectiveComponent
+   ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      FormsModule
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

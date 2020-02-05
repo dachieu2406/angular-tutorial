@@ -1,2 +1,11 @@
 <h1>Angular JS</h1>
+<input type="text" appInputField><br>
+<directive></directive>
+<boostrap-panel>
+    <ng-container class="heading">Heading</ng-container>
+    <div class="body">
+        <p>Body</p>
+    </div>
+</boostrap-panel>
+<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
 <course></course>

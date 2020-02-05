@@ -1,0 +1,16 @@
+<button (click)="onAdd()">Add</button>
+
+<div *ngIf="courses.length > 0; then courseList else noCourses"></div>
+
+<ng-template #courseList>
+  <p>List of courses</p>
+  <li *ngFor="let course of courses">
+    {{course.name}}
+    <button (click)="onRemove(course)">Remove</button>
+    <button (click)="onChange(course)">Change</button>
+  </li>
+</ng-template>
+
+<ng-template #noCourses>
+  <p>No courses yet</p>
+</ng-template>
