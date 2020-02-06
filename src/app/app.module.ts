@@ -9,6 +9,7 @@ import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { PanelComponent } from './panel/panel.component';
 import { DirectiveComponent } from './directive/directive.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DirectiveComponent } from './directive/directive.component';
       SummaryPipe,
       FavoriteComponent,
       PanelComponent,
-      DirectiveComponent
+      DirectiveComponent,
+      ContactFormComponent
    ],
    imports: [
       BrowserModule,
