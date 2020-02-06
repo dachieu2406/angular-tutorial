@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { PanelComponent } from './panel/panel.component';
 import { DirectiveComponent } from './directive/directive.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 
 @NgModule({
@@ -20,12 +21,14 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
       FavoriteComponent,
       PanelComponent,
       DirectiveComponent,
-      ContactFormComponent
+      ContactFormComponent,
+      SignupFormComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
-      FormsModule
+      FormsModule,
+      ReactiveFormsModule
    ],
    providers: [],
    bootstrap: [
