@@ -1,7 +1,6 @@
-import { ToastrModule } from 'ngx-toastr';
 import { PostService } from './services/post.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,6 +14,7 @@ import { DirectiveComponent } from './directive/directive.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { PostsComponent } from './posts/posts.component';
+import { AppErrorHandler } from './common/error/app-error-handler';
 
 
 @NgModule({
@@ -37,7 +37,8 @@ import { PostsComponent } from './posts/posts.component';
       HttpClientModule
    ],
    providers: [
-      PostService
+      PostService,
+      { provide: ErrorHandler, useClass: AppErrorHandler }
    ],
    bootstrap: [
       AppComponent

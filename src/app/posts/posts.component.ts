@@ -1,5 +1,8 @@
 import { PostService } from './../services/post.service';
 import { Component, OnInit } from '@angular/core';
+import { AppError } from '../common/error/app-error';
+import { NotFoundError } from '../common/error/not-found-error';
+import { BadRequestError } from '../common/error/bad-request-error';
 
 @Component({
   selector: 'posts',
@@ -14,12 +17,9 @@ export class PostsComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.service.getPosts()
+    this.service.getAll()
       .subscribe(response =>{
         this.posts = response
-      }, error => {
-        alert('There is error')
-        console.log(error)
       })
   }
 
@@ -27,46 +27,41 @@ export class PostsComponent implements OnInit {
     let post = { title: input.value }
     input.value = ''
 
-    this.service.createPost(post)
+    this.service.create(post)
       .subscribe(response => {
         post['id'] = response.id
         this.posts.splice(0, 0, post)
       }, 
-      (error: Response) => {
-        if(error.status === 400){
+      (error: AppError) => {
+        if(error instanceof BadRequestError){
           // do something
         }
-        else {
-          alert('There is error')
-          console.log(error)
-        }
-        
+        else throw error
       })
   }
 
   updatePost(post){
-    this.service.updatePost(post)
+    this.service.update(post)
       .subscribe(response =>{
         console.log(response)
-      }, error => {
-        alert('There is error')
-        console.log(error)
-      })
+      }, 
+      // (error: AppError) => {    Comment it because error handle in Global Error Handler
+      //   alert('There is error')
+      //   console.log(error)
+      // })
+      )
   }
 
   deletePost(post){
-    this.service.deletePost(post.id)
+    this.service.delete(post.id)
       .subscribe(response => {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1)
       }, 
-      (error: Response) => {
-        if(error.status === 404)
+      (error: AppError) => {
+        if(error instanceof NotFoundError)
           alert('This post has already been deleted.')
-        else{
-          alert('There is error')
-          console.log(error)
-        }
+        else throw error;
       })
   }
 }
